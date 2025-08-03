@@ -1,0 +1,84 @@
+---
+openapi: 3.0.1
+info:
+  title: Deal Finder API
+  version: v1
+paths:
+  "/api/v1/deals/search":
+    get:
+      summary: search deals
+      tags:
+      - Deals
+      parameters:
+      - name: lat
+        in: query
+        format: float
+        required: false
+        description: Latitude of the user for location-based search.
+        schema:
+          type: number
+      - name: lon
+        in: query
+        format: float
+        required: false
+        description: Longitude of the user for location-based search.
+        schema:
+          type: number
+      - name: radius
+        in: query
+        required: false
+        description: Search radius in meters. Defaults to 5000.
+        schema:
+          type: integer
+      - name: category
+        in: query
+        required: false
+        description: Filter deals by a specific category (e.g., "Food & Drink").
+        schema:
+          type: string
+      - name: min_price
+        in: query
+        format: float
+        required: false
+        description: The minimum discounted price for deals.
+        schema:
+          type: number
+      - name: max_price
+        in: query
+        format: float
+        required: false
+        description: The maximum discounted price for deals.
+        schema:
+          type: number
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deals:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        discount_price:
+                          type: string
+                        relevance_score:
+                          type: number
+                          format: float
+                      required:
+                      - id
+                      - title
+                      - discount_price
+                      - relevance_score
+        '422':
+          description: invalid request
+servers:
+- url: http://localhost:3000
+  description: Development server

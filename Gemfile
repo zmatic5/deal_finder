@@ -44,6 +44,13 @@ group :development, :test do
 
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
+
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+
+  gem "rswag-api"
+  gem "rswag-ui"
+  gem "rswag-specs"
 end
 
 gem "geocoder"

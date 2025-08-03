@@ -18,7 +18,7 @@ module Api
       validate :validate_price_range
 
       def search_params
-        attributes.compact
+        attributes.compact.symbolize_keys
       end
 
       private
