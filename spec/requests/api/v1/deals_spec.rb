@@ -1,8 +1,8 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/deals', type: :request do
-  path '/api/v1/deals/search' do
-    get('search deals') do
+  path '/api/v1/deals' do
+    get('list deals') do
       tags 'Deals'
       produces 'application/json'
 

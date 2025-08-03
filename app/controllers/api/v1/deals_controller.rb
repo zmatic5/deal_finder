@@ -1,7 +1,7 @@
 module Api
   module V1
     class DealsController < ApplicationController
-      def search
+      def index
         form = Api::V1::DealSearchForm.new(form_params)
 
         unless form.valid?

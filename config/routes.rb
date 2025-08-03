@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get "deals/search", to: "deals#search"
+      resources :deals, only: [ :index ]
     end
   end
 end

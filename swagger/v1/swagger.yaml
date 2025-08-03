@@ -4,9 +4,9 @@ info:
   title: Deal Finder API
   version: v1
 paths:
-  "/api/v1/deals/search":
+  "/api/v1/deals":
     get:
-      summary: search deals
+      summary: list deals
       tags:
       - Deals
       parameters:
