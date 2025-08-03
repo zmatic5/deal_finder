@@ -1,24 +1,43 @@
-# README
+# Deal finder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails API application helps users discover the best deals based on their preferences.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+### Getting Started
 
-* System dependencies
+Build and run the app:
 
-* Configuration
+```BASH
+rails db:create
+rails db:migrate
+rails s
+```
 
-* Database creation
+The API will be available at:
 
-* Database initialization
+```BASH
+http://localhost:3000
+```
 
-* How to run the test suite
+Swagger documentation will be available at:
 
-* Services (job queues, cache servers, search engines, etc.)
+```BASH
+http://localhost:3000/api-docs
+```
 
-* Deployment instructions
+### Testing
 
-* ...
+To run the test suite:
+
+```BASH
+bundle exec rspec
+```
+
+### Linting
+
+To run RuboCop:
+
+```BASH
+bundle exec rubocop
+```
