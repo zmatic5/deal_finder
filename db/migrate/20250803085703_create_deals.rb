@@ -24,7 +24,7 @@ class CreateDeals < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :deals, [:latitude, :longitude]
+    add_index :deals, [ :latitude, :longitude ]
     add_index :deals, :category
     add_index :deals, :discount_price
   end

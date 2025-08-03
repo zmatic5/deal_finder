@@ -25,22 +25,22 @@ module Api
 
       def validate_coordinates_presence
         if lat.present? != lon.present?
-          errors.add(:base, 'lat and lon must be provided together')
+          errors.add(:base, "lat and lon must be provided together")
         end
       end
 
       def validate_coordinate_ranges
         if lat.present? && !lat.between?(-90, 90)
-          errors.add(:lat, 'must be between -90 and 90')
+          errors.add(:lat, "must be between -90 and 90")
         end
         if lon.present? && !lon.between?(-180, 180)
-          errors.add(:lon, 'must be between -180 and 180')
+          errors.add(:lon, "must be between -180 and 180")
         end
       end
 
       def validate_price_range
         if min_price.present? && max_price.present? && min_price > max_price
-          errors.add(:min_price, 'cannot be greater than max_price')
+          errors.add(:min_price, "cannot be greater than max_price")
         end
       end
     end

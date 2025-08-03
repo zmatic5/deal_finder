@@ -1,7 +1,7 @@
 namespace :data do
   desc "Import deals"
   task import_deals: :environment do
-    file_path = Rails.root.join('data', 'data.json')
+    file_path = Rails.root.join("data", "data.json")
     abort("Data file not found at #{file_path}") unless File.exist?(file_path)
 
     deals_data = JSON.parse(File.read(file_path), symbolize_names: true)

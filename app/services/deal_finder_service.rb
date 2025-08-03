@@ -48,9 +48,9 @@ class DealFinderService
   end
 
   def calculate_distances_for(deals)
-    search_point = [@params[:lat], @params[:lon]]
+    search_point = [ @params[:lat], @params[:lon] ]
     deals.map do |deal|
-      deal_point = [deal.latitude, deal.longitude]
+      deal_point = [ deal.latitude, deal.longitude ]
       distance = Geocoder::Calculations.distance_between(search_point, deal_point, units: :km)
       DealWithDistance.new(deal, distance)
     end
@@ -80,11 +80,11 @@ class DealFinderService
   end
 
   def score_for_popularity(deal)
-    ([deal.quantity_sold || 0, 1000].min / 10.0) * WEIGHTS[:popularity]
+    ([ deal.quantity_sold || 0, 1000 ].min / 10.0) * WEIGHTS[:popularity]
   end
 
   def score_for_distance(distance_km)
-    normalized_distance = [distance_km, MAX_DISTANCE_KM].min / MAX_DISTANCE_KM
+    normalized_distance = [ distance_km, MAX_DISTANCE_KM ].min / MAX_DISTANCE_KM
     (1 - normalized_distance) * 100 * WEIGHTS[:distance]
   end
 
